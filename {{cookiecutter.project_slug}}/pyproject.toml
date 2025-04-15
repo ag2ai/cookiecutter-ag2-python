@@ -114,7 +114,7 @@ exclude = [
 
 [tool.mypy]
 strict = true
-python_version = "3.8"
+python_version = "3.9"
 ignore_missing_imports = true
 install_types = true
 non_interactive = true
@@ -135,7 +135,7 @@ disallow_any_unimported = false
 [tool.ruff]
 fix = true
 line-length = 88
-target-version = "py38"
+target-version = "py39"
 include = ["{{cookiecutter.project_slug}}/**/*.py", "{{cookiecutter.project_slug}}/**/*.pyi", "{{cookiecutter.project_slug}}/**/*.py", "{{cookiecutter.project_slug}}/**/*.py", "{{cookiecutter.project_slug}}.toml"]
 exclude = ["docs/docs_src"]
 
