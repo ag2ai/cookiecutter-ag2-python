@@ -4,6 +4,16 @@ repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-yaml
+        exclude: 'website/mkdocs/mkdocs.yml'
+    -   id: check-toml
+    -   id: check-json
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-merge-conflict
+    -   id: detect-private-key
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
         exclude: |
@@ -12,9 +22,23 @@ repos:
                 docs/docs/en/api/.meta.yml|
                 docs/docs/en/release.md
             )$
+    -   id: no-commit-to-branch    
     -   id: check-yaml
         exclude: 'docs/mkdocs.yml'
     -   id: check-added-large-files
+
+-   repo: local
+    hooks:
+    -   id: check-license-headers
+        name: check license headers
+        entry: python ./scripts/pre-commit-license-check.py
+        language: python
+        types: [python]
+        exclude: |
+            (?x)^(
+            notebook/.* |
+            website/.*
+            )$
 
 -   repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
