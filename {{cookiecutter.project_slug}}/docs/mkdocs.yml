@@ -1,9 +1,9 @@
 site_name: {{cookiecutter.project_name}}
 # description to improve website indexing
 site_description: {{cookiecutter.project_description}}
-site_url: https://{{cookiecutter.project_slug}}.airt.ai/
-site_author: airt
-copyright: '&copy; 2023 <a href="https://airt.ai/" target="_blank" rel="noopener">airt</a>'
+site_url: https://{{cookiecutter.project_slug}}.ag2ai.ai/
+site_author: AG2
+copyright: '&copy; 2023 <a href="https://ag2.ai/" target="_blank" rel="noopener">AG2</a>'
 
 docs_dir: docs
 
@@ -13,9 +13,9 @@ watch:
   - includes
   - overrides
 
-repo_name: airtai/{{cookiecutter.project_slug}}
-repo_url: https://github.com/airtai/{{cookiecutter.project_slug}}
-edit_uri: https://github.com/airtai/{{cookiecutter.project_slug}}/tree/main/docs/docs
+repo_name: ag2ai/{{cookiecutter.project_slug}}
+repo_url: https://github.com/ag2ai/{{cookiecutter.project_slug}}
+edit_uri: https://github.com/ag2ai/{{cookiecutter.project_slug}}/tree/main/docs/docs
 
 exclude_docs: |
   navigation_template.txt
@@ -151,19 +151,19 @@ extra:
   analytics:
     provider: google
     property: G-HDTMP5FFHP
-  #social_image: https://opengraph.githubassets.com/1671805243.560327/airtai/
+  #social_image: https://opengraph.githubassets.com/1671805243.560327/ag2ai/
   social:
     # Discord link should be first
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/qFm6aSqq59
+      link: https://discord.gg/pAbnFJrkgZ
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/airtai/{{cookiecutter.project_slug}}
+      link: https://github.com/ag2ai/{{cookiecutter.project_slug}}
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/airt_AI
-    - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/airt.ai.api/
+      link: https://twitter.com/ag2oss
+    #- icon: fontawesome/brands/facebook
+    #  link: https://www.facebook.com/ag2ai/
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/airt-ai/
+      link: https://www.linkedin.com/company/ag2ai/
 
   version:
     provider: mike
