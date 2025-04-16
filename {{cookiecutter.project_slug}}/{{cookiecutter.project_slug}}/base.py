@@ -1,10 +1,5 @@
 """{{cookiecutter.project_description}}"""
 
-def dummy() -> int:
-    """Dummy function that returns 42.
-
-    Returns:
-        int: The answer to life, the universe, and everything.
-
-    """
+def the_meaning_of_life() -> int:
+    """Returns the meaning of life."""
     return 42
