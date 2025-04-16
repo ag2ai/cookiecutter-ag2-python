@@ -158,9 +158,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pre-commit
-          key: pre-commit|"${{ env.PY }}"|"${{ hashFiles('.pre-commit-config.yaml') }}"
-      # - name: Install Dependencies
-      #   run: pip install .[dev]
+          key: pre-commit|"${{ hashFiles('.pre-commit-config.yaml') }}"
       - uses: pre-commit/action@v3.0.1
 
   # https://github.com/marketplace/actions/alls-green#why
