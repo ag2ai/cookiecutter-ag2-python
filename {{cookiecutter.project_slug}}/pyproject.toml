@@ -100,7 +100,7 @@ dev = [
 Homepage = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}"
 Documentation = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}"
 Tracker = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/issues"
-Source = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}
+Source = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
 
 [tool.hatch.version]
 path = "{{cookiecutter.project_slug}}/__about__.py"
