@@ -66,6 +66,7 @@ devdocs = [
 #    "black==23.12.1", # replaced by ruff
     "typer>=0.15.2",
     "requests",  # do not pin it
+    "fastapi==0.115.12",
 ]
 
 lint = [
