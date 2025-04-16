@@ -9,7 +9,7 @@ on:
   merge_group:
 
 jobs:
-  static_analysis:
+  static-analysis:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
@@ -62,16 +62,18 @@ jobs:
         run: pip install .[dev]
       - run: mkdir coverage
       - name: Test
-        run: bash scripts/test.sh
+        run: bash scripts/test.sh -vv
         env:
-          COVERAGE_FILE: coverage/.coverage.{{"${{ runner.os }}"}}-py{{"${{ matrix.python-version }}"}}-{{"${{ matrix.pydantic-version }}"}}
-          CONTEXT: {{"${{ runner.os }}"}}-py{{"${{ matrix.python-version }}"}}-{{"${{ matrix.pydantic-version }}"}}
+          COVERAGE_FILE: coverage/.coverage.{{"${{ runner.os }}"}}-py{{"${{ matrix.python-version }}"}}
+          CONTEXT: {{"${{ runner.os }}"}}-py{{"${{ matrix.python-version }}"}}
       - name: Store coverage files
         uses: actions/upload-artifact@v4
         with:
-          name: .coverage.{{"${{ runner.os }}"}}-py{{"${{ matrix.python-version }}"}}-{{"${{ matrix.pydantic-version }}"}}
-          path: coverage
+          name: .coverage.{{"${{ runner.os }}"}}-py{{"${{ matrix.python-version }}"}}
+          path: coverage/.coverage.*
           if-no-files-found: error
+          overwrite: true
+          include-hidden-files: true
 
   test-macos-latest:
     if: github.event.pull_request.draft == false
@@ -105,7 +107,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pip install .[dev]
       - name: Test
-        run: bash scripts/test.sh
+        run: bash scripts/test.sh -vv
 
   coverage-combine:
     if: github.event.pull_request.draft == false
@@ -145,7 +147,7 @@ jobs:
   pre-commit-check:
     runs-on: ubuntu-latest
     env:
-      SKIP: "static-analysis, test"
+      SKIP: "static-analysis,docs"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -157,8 +159,8 @@ jobs:
         with:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
-      - name: Install Dependencies
-        run: pip install .[submodules,docs,testing]
+      # - name: Install Dependencies
+      #   run: pip install .[dev]
       - uses: pre-commit/action@v3.0.1
 
   # https://github.com/marketplace/actions/alls-green#why
@@ -166,10 +168,11 @@ jobs:
     if: github.event.pull_request.draft == false
 
     needs:
-      - static_analysis
+      - static-analysis
       - coverage-combine
       - test-macos-latest
       - test-windows-latest
+      - pre-commit-check
     runs-on: ubuntu-latest
 
     steps:

@@ -2,6 +2,8 @@
 search:
   exclude: true
 ---
+- Reference
+{api}
 - Contributing
     - [Development](getting-started/contributing/CONTRIBUTING.md)
 - [Release Notes](release.md)

@@ -97,10 +97,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://{{cookiecutter.project_slug}}.ag2.ai/latest/"
-Documentation = "https://{{cookiecutter.project_slug}}.ag2.ai/latest/getting-started/"
-Tracker = "https://github.com/ag2ai/{{cookiecutter.project_slug}}/issues"
-Source = "https://github.com/ag2ai/{{cookiecutter.project_slug}}"
+Homepage = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}"
+Documentation = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}"
+Tracker = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/issues"
+Source = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}
 
 [tool.hatch.version]
 path = "{{cookiecutter.project_slug}}/__about__.py"
@@ -215,7 +215,7 @@ source = [
     "docs/docs_src",
     "examples",
     "{{cookiecutter.project_slug}}",
-    "tests"
+#    "tests",
 ]
 context = '${CONTEXT}'
 omit = [

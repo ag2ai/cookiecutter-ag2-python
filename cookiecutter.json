@@ -1,7 +1,12 @@
 {
+    "company_name": "AG2 Technologies, Inc.",
+    "github_username": "ag2ai",
     "project_name": "My Project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_description": "New AG2 Python project created with cookiecutter.",
+    "discord_url": "https://discord.gg/pAbnFJrkgZ",
+    "twitter_handle": "ag2oss",
+    "linkedin_url": "https://www.linkedin.com/company/ag2ai/",
     "_copy_without_render": [
         ".github/workflows/update_release_notes.yaml",
         ".github/workflows/publish_pypi.yaml",

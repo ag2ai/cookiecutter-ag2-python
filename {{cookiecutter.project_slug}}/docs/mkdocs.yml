@@ -1,9 +1,9 @@
 site_name: {{cookiecutter.project_name}}
 # description to improve website indexing
 site_description: {{cookiecutter.project_description}}
-site_url: https://{{cookiecutter.project_slug}}.ag2ai.ai/
+site_url: https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}
 site_author: AG2
-copyright: '&copy; 2023 <a href="https://ag2.ai/" target="_blank" rel="noopener">AG2</a>'
+copyright: '&copy; 2025 <a href="https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}" target="_blank" rel="noopener">AG2</a>'
 
 docs_dir: docs
 
@@ -24,8 +24,8 @@ exclude_docs: |
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/img/logo.svg
-  favicon: assets/img/logo.svg
+  logo: assets/img/logo-white.svg
+  favicon: assets/img/favicon.svg
   font:
     text: Roboto
   palette:
@@ -155,15 +155,15 @@ extra:
   social:
     # Discord link should be first
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/pAbnFJrkgZ
+      link: {{cookiecutter.discord_url}}
     - icon: fontawesome/brands/github-alt
       link: https://github.com/ag2ai/{{cookiecutter.project_slug}}
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ag2oss
+      link: {{cookiecutter.twitter_handle}}
     #- icon: fontawesome/brands/facebook
     #  link: https://www.facebook.com/ag2ai/
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/ag2ai/
+      link: {{cookiecutter.linkedin_url}}
 
   version:
     provider: mike

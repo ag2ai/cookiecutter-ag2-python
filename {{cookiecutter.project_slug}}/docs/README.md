@@ -1,3 +1,3 @@
 # :warning: DOCUMENTATION CODE SOURCES :warning:
 
-To find a real docs, just visit our website: [https://{{cookiecutter.project_slug}}.ag2ai.ai/latest/](https://{{cookiecutter.project_slug}}.ag2ai.ai/latest/)
+To find a real docs, just visit our website: [https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}}](https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.project_slug}})

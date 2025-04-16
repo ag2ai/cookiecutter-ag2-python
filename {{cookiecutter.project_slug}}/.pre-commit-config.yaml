@@ -7,7 +7,7 @@ repos:
     -   id: check-added-large-files
     -   id: check-ast
     -   id: check-yaml
-        exclude: 'website/mkdocs/mkdocs.yml'
+        exclude: "docs/mkdocs.yml"
     -   id: check-toml
     -   id: check-json
     -   id: trailing-whitespace
@@ -24,21 +24,21 @@ repos:
             )$
     -   id: no-commit-to-branch
     -   id: check-yaml
-        exclude: "docs/mkdocs.yml"
+        exclude: 'docs/mkdocs.yml'
     -   id: check-added-large-files
 
--   repo: local
-    hooks:
-    -   id: check-license-headers
-        name: check license headers
-        entry: python ./scripts/pre-commit-license-check.py
-        language: python
-        types: [python]
-        exclude: |
-            (?x)^(
-            notebook/.* |
-            website/.*
-            )$
+# -   repo: local
+#     hooks:
+#     -   id: check-license-headers
+#         name: check license headers
+#         entry: python ./scripts/pre-commit-license-check.py
+#         language: python
+#         types: [python]
+#         exclude: |
+#             (?x)^(
+#             notebook/.* |
+#             website/.*
+#             )$
 
 -   repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
