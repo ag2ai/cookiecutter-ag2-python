@@ -11,7 +11,6 @@ repos:
     -   id: check-toml
     -   id: check-json
     -   id: trailing-whitespace
-    -   id: end-of-file-fixer
     -   id: check-merge-conflict
     -   id: detect-private-key
     -   id: trailing-whitespace
@@ -20,11 +19,12 @@ repos:
             (?x)^(
                 docs/docs/SUMMARY.md|
                 docs/docs/en/api/.meta.yml|
-                docs/docs/en/release.md
+                docs/docs/en/release.md|
+                docs/assets/imgs/.*
             )$
-    -   id: no-commit-to-branch    
+    -   id: no-commit-to-branch
     -   id: check-yaml
-        exclude: 'docs/mkdocs.yml'
+        exclude: "docs/mkdocs.yml"
     -   id: check-added-large-files
 
 -   repo: local
@@ -77,7 +77,7 @@ repos:
         name: Build docs
         entry: "scripts/build-docs-pre-commit.sh"
         language: python
-        language_version: python3.10
+        language_version: python3.9
         files: ^docs
         require_serial: true
         verbose: true

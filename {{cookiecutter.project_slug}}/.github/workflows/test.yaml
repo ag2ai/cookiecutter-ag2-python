@@ -24,13 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[dev]"
 
-      - name: Run ruff
-        shell: bash
-        run: ruff {{cookiecutter.project_slug}}
-
       - name: Run mypy
         shell: bash
-        run: mypy {{cookiecutter.project_slug}}
+        run: mypy
 
       - name: Run bandit
         shell: bash
@@ -145,6 +141,25 @@ jobs:
         with:
           name: coverage-html
           path: htmlcov
+
+  pre-commit-check:
+    runs-on: ubuntu-latest
+    env:
+      SKIP: "static-analysis, test"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: Set $PY environment variable
+        run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+      - name: Install Dependencies
+        run: pip install .[submodules,docs,testing]
+      - uses: pre-commit/action@v3.0.1
 
   # https://github.com/marketplace/actions/alls-green#why
   check: # This job does nothing and is only used for the branch protection
